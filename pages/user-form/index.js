@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, View, TextInput, Button, CheckBox } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import Styles from './styles'
 import firebase from '../../firebase';
@@ -15,6 +15,7 @@ export default function UserForm({route, navigation}) {
     const [telefone, onChangeTelefone] = useState('')
     const [email, onChangeEmail] = useState('')
     //const [senha, onChangeSenha] = useState('')
+    const [cadastroProfissional, setCadastroProfissional] = useState(false)
     const [profissao, setSelectedProfissao] = useState('')
 
     const profissaoOptions = [
@@ -33,6 +34,7 @@ export default function UserForm({route, navigation}) {
             'idade' : idade,
             'telefone' : telefone,
             'email' : email,
+            'cadastroProfissional': cadastroProfissional,
             'profissao' : profissao,
             'uid' : user.uid
         }
@@ -48,7 +50,8 @@ export default function UserForm({route, navigation}) {
             <TextInput style={Styles.formInput} value={endereco} onChangeText={onChangeEndereco} placeholder='Endereço' />
             <TextInput style={Styles.formInput} value={telefone} onChangeText={onChangeTelefone} placeholder='Telefone' />
             <TextInput style={Styles.formInput} value={email} onChangeText={onChangeEmail} placeholder='E-Mail' />
-            <Picker style={Styles.formInput} selectedValue={profissao} onValueChange={(itemValue, itemIndex) => setSelectedProfissao(itemValue)}>
+            <CheckBox style={Styles.formInput} value={cadastroProfissional} onValueChange={setCadastroProfissional} /><Text>Marque esta opção caso deseje oferecer um seviço pela plataforma</Text>
+            <Picker enabled={cadastroProfissional} style={Styles.formInput} selectedValue={profissao} onValueChange={(itemValue, itemIndex) => setSelectedProfissao(itemValue)}>
                 {profissaoOptions.map((p) => (
                     <Picker.Item key={p} value={p} label={p} /> 
                 ))}
