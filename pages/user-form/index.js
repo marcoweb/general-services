@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, Button, CheckBox } from 'react-native';
+import { Text, View, TextInput, Button,TouchableOpacity, CheckBox } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import Styles from './styles'
 import firebase from '../../firebase';
@@ -38,25 +38,44 @@ export default function UserForm({route, navigation}) {
             'profissao' : profissao,
             'uid' : user.uid
         }
-        db.collection('usuarios').add(newUserData)
-        navigation.navigate('Inicial', {userData : newUserData})
-    }
+        db.collection('usuarios').add(newUserData) 
+       navigation.navigate('Profissional', {userData : newUserData})
+    } 
+    
 
     return (
       <View style={Styles.container}>
-          <View style={Styles.formArea}>
+          
+               <View style={Styles.borda}>   
+            <View style={Styles.borda2}/>   
+             <Text style={Styles.titulo}> Preencha seus dados:</Text>   
+
+                <View style={Styles.formArea}>
+                <View style={Styles.formulario}>
+            
             <TextInput style={Styles.formInput} value={nome} onChangeText={onChangeNome} placeholder='Nome' />
             <TextInput style={Styles.formInput} value={idade} onChangeText={onChangeIdade} placeholder='Idade' />
             <TextInput style={Styles.formInput} value={endereco} onChangeText={onChangeEndereco} placeholder='Endereço' />
             <TextInput style={Styles.formInput} value={telefone} onChangeText={onChangeTelefone} placeholder='Telefone' />
             <TextInput style={Styles.formInput} value={email} onChangeText={onChangeEmail} placeholder='E-Mail' />
-            <CheckBox style={Styles.formInput} value={cadastroProfissional} onValueChange={setCadastroProfissional} /><Text>Marque esta opção caso deseje oferecer um seviço pela plataforma</Text>
+           
+           <Text style={Styles.txtOpcao}>
+               Caso você tenha interesse em oferecer um serviço,
+                clique na caixinha abaixo:</Text> 
+           
+            <CheckBox style={Styles.formInput} value={cadastroProfissional} onValueChange={setCadastroProfissional} />
             <Picker enabled={cadastroProfissional} style={Styles.formInput} selectedValue={profissao} onValueChange={(itemValue, itemIndex) => setSelectedProfissao(itemValue)}>
                 {profissaoOptions.map((p) => (
                     <Picker.Item key={p} value={p} label={p} /> 
                 ))}
             </Picker>
-            <Button title="Salvar" onPress={handleSave} />
+         
+           </View>
+            </View>
+                {/* <Button style={Styles.botaoEnviar} title="Salvar" onPress={handleSave} /> */}
+                <TouchableOpacity style={Styles.botaoEnviar} title="Salvar" onPress={handleSave}>
+                   <Text style={Styles.txtbt}>Salvar </Text>
+                </TouchableOpacity>
         </View>
       </View>
     )
