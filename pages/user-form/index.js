@@ -39,8 +39,12 @@ export default function UserForm({route, navigation}) {
             'uid' : user.uid
         }
         db.collection('usuarios').add(newUserData) 
-       navigation.navigate('Profissional', {userData : newUserData})
-    } 
+        // if(setCadastroProfissional != cadastroProfissional) {
+       navigation.navigate('Inicial', {userData : newUserData}) 
+    // } else {
+    //     navigation.navigate('Inicial', {userData : newUserData})
+    // } }
+    }
     
 
     return (

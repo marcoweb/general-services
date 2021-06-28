@@ -25,32 +25,20 @@ const Styles = StyleSheet.create({
     }, 
 
     txt:{
-         fontSize: 20,
+         fontSize: 10,
         color: 'black',
         fontWeight: 'bold',
         textAlign: 'center',
         padding: 10,
         fontFamily: "Arial",
+        backgroundColor: '#D3D3D3',
+        borderRadius: 6,
         width: '70%',
         marginLeft: 'auto',
         marginRight: 'auto',
-        fontWeight: 'bold',
         // alignItems: 'center',
         // justifyContent:'center',
         // position: 'relative',
-    },
-    botao: {
-     marginTop: 5,
-        marginBottom: 20,
-        marginLeft: 20,
-        marginRight: 20,
-        borderRadius: 7,
-        height: 30,
-        borderWidth: 2,
-        borderColor: 'black',
-        backgroundColor: '',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
      
 
@@ -64,14 +52,6 @@ const Styles = StyleSheet.create({
         top: '-25px',
       //  left: '-50px',
         alignItems: 'center',
-    },
-     contrate:{
-         fontSize: 20,
-        color: 'black',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        padding: 10,
-        fontFamily: "sans-serif",
     },
     rodape: {
 	backgroundColor: '#48D1CC', //cor de fundo

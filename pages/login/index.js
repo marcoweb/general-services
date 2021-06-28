@@ -17,12 +17,12 @@ export default function Login({route, navigation}) {
         db.collection('usuarios').where('uid', '==', result.user.uid).get().then((querySnapshot) => {
           if(querySnapshot.size == 1){
             userData = querySnapshot.docs[0].data() 
-             if(querySnapshot.docs[0].data.cadastroProfissional){
-            navigation.navigate('Profissional', {userData: userData})
+            //  if(querySnapshot.docs[0].data.cadastroProfissional ){
+            navigation.navigate('Inicial', {userData: userData})
             
-             } else{
-                  navigation.navigate('Inicial', {userData: userData} ) 
-             }
+            //  } else {
+            //       navigation.navigate('Inicial', {userData: userData} ) 
+            //  }
 
             } else {
             navigation.navigate('UserForm', {user: result.user, userData: userData})
