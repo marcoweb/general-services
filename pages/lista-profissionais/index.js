@@ -4,8 +4,8 @@ import Styles from '../Cuidadores/style';
 
 import firebase from '../../firebase'
 
-export default function Cuidadores({route, navigation}) {
-    // const {userData} = route.params 
+export default function ListaProfissionais({route, navigation}) {
+    const {profissao} = route.params 
 
     const db = firebase.firestore()
 
@@ -15,7 +15,7 @@ export default function Cuidadores({route, navigation}) {
         const fetchData = async() => {
             try {
                 let result = []
-                const response = await db.collection("usuarios").where('profissao', '==', 'Cuidador(a)').get().then((querySnapshot) => {
+                const response = await db.collection("usuarios").where('profissao', '==', profissao).get().then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
                         result.push(doc.data())
                     })
@@ -34,7 +34,7 @@ export default function Cuidadores({route, navigation}) {
              <View style={Styles.borda1}>
                 <View style={Styles.borda2}/>
                     {profissionais.map((p) => (
-                        <Text>{p.nome}</Text>
+                        <Text>{p.nome} : {p.email}</Text>
                     ))}
                 </View>
         </View>

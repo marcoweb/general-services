@@ -9,6 +9,10 @@ export default function Inicial({route, navigation}) {
         navigation.navigate('Cuidadores')
     }
 
+    function listaProfissionais(tipo) {
+        navigation.navigate('ListaProfissionais', {profissao: tipo})
+    }
+
     return (
          <View style={Styles.container}> 
       <View style={Styles.borda1}>
@@ -16,11 +20,11 @@ export default function Inicial({route, navigation}) {
 
         <Text style={Styles.contrate}>Contrate algum serviço:</Text>
 
-        <TouchableOpacity style={Styles.botao} onPress={Cuidadores}>
+        <TouchableOpacity style={Styles.botao} onPress={() => listaProfissionais('Cuidador(a)')}>
            <Text style={Styles.txt}> Cuidadores </Text>
         </TouchableOpacity> 
 
-        <TouchableOpacity style={Styles.botao}>
+        <TouchableOpacity style={Styles.botao} onPress={() => listaProfissionais('Faxineiro(a)')}>
            <Text style={Styles.txt}> Faxineiros </Text>
         </TouchableOpacity>  
         
