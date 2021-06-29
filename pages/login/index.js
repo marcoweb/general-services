@@ -15,19 +15,23 @@ export default function Login({route, navigation}) {
       if(result){
         let userData = null
         db.collection('usuarios').where('uid', '==', result.user.uid).get().then((querySnapshot) => {
-          if(querySnapshot.size == 1){
-            userData = querySnapshot.docs[0].data() 
+            if(querySnapshot.size == 1){
+                userData = querySnapshot.docs[0].data() 
+                if(userData['cadastroProfissional']) {
+                    navigation.navigate('Profissional', {userData: userData})
+                } else {
+                    navigation.navigate('Inicial', {userData:userData})
+                }
             //  if(querySnapshot.docs[0].data.cadastroProfissional ){
-            navigation.navigate('Inicial', {userData: userData})
+            //navigation.navigate('Inicial', {userData: userData})
             
             //  } else {
             //       navigation.navigate('Inicial', {userData: userData} ) 
             //  }
 
             } else {
-            navigation.navigate('UserForm', {user: result.user, userData: userData})
-        }
-         
+                navigation.navigate('UserForm', {user: result.user, userData: userData})
+            }
         })
       }
     }
