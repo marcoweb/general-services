@@ -25,33 +25,22 @@ const Styles = StyleSheet.create({
     }, 
 
     txt:{
+        marginTop: 30,
          fontSize: 10,
         color: 'black',
         fontWeight: 'bold',
         textAlign: 'center',
         padding: 10,
-        fontFamily: "Arial",
-        backgroundColor: '#D3D3D3',
+        fontFamily: "sans-serif",
+        backgroundColor: '#E0FFFF',
         borderRadius: 6,
         width: '70%',
         marginLeft: 'auto',
-        marginRight: 'auto',
+        marginRight: 'auto', 
+        borderColor: "black",
         // alignItems: 'center',
         // justifyContent:'center',
         // position: 'relative',
-    },
-     
-
-    img:{
-        marginTop: 6,
-         width: '100px', //largura
-        height: '100px',// altura
-        marginLeft: 'auto',
-        marginRight: 'auto', 
-         position: 'relative',
-        top: '-25px',
-      //  left: '-50px',
-        alignItems: 'center',
     },
     rodape: {
 	backgroundColor: '#48D1CC', //cor de fundo

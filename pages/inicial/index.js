@@ -5,9 +5,9 @@ import Styles from './styles';
 export default function Inicial({route, navigation}) {
     const {userData} = route.params 
 
-    const Cuidadores = () => {
-        navigation.navigate('Cuidadores')
-    }
+    // const Cuidadores = () => {
+    //     navigation.navigate('Cuidadores')
+    // }
 
     function listaProfissionais(tipo) {
         navigation.navigate('ListaProfissionais', {profissao: tipo})
@@ -28,15 +28,15 @@ export default function Inicial({route, navigation}) {
            <Text style={Styles.txt}> Faxineiros </Text>
         </TouchableOpacity>  
         
-        <TouchableOpacity style={Styles.botao}>
+        <TouchableOpacity style={Styles.botao} onPress={() => listaProfissionais('Manicure')}>
            <Text style={Styles.txt}> Manicures </Text>
         </TouchableOpacity> 
         
-        <TouchableOpacity style={Styles.botao}>
+        <TouchableOpacity style={Styles.botao} onPress={() => listaProfissionais('Pedreiro(a)')}>
            <Text style={Styles.txt}> Pedreiros </Text>
         </TouchableOpacity> 
 
-        <TouchableOpacity style={Styles.botao}>
+        <TouchableOpacity style={Styles.botao} onPress={() => listaProfissionais('Pintor(a)')}>
            <Text style={Styles.txt}> Pintores </Text>
         </TouchableOpacity> 
         

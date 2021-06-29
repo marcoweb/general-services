@@ -13,7 +13,7 @@ export default function Profissional({route, navigation}) {
 
         <Text style={Styles.txt}>{userData.nome}</Text> <br/> 
         <Text style={Styles.txt}>{userData.telefone}</Text> <br/>
-    <Text style={Styles.txt}>{userData.profissao}</Text><br/>
+    <Text style={Styles.txt}> {userData.profissao}</Text><br/>
        
 
 

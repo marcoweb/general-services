@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import Styles from '../Cuidadores/style';
+import Styles from '../lista-profissionais/styles';
 
 import firebase from '../../firebase'
 
@@ -34,7 +34,7 @@ export default function ListaProfissionais({route, navigation}) {
              <View style={Styles.borda1}>
                 <View style={Styles.borda2}/>
                     {profissionais.map((p) => (
-                        <Text>{p.nome} : {p.email}</Text>
+                        <Text style={Styles.txt}>{p.nome} : {p.telefone}</Text>
                     ))}
                 </View>
         </View>
