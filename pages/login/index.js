@@ -44,7 +44,7 @@ export default function Login({route, navigation}) {
 
                      <Text style={Styles.txtBV}>Bem Vindo!</Text>
                   
-                        <Text style={Styles.txtCad}>Faça seu cadastro:</Text>
+                        <Text style={Styles.txtCad}>Faça seu cadastro ou Login:</Text>
 
 
                      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
